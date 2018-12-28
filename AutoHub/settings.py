@@ -20,7 +20,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'hub',
-    'bootstrap4',
     'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,5 +116,5 @@ STATICFILES_DIRS = [
 
 #Login/Logout Settings
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
