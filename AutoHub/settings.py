@@ -21,6 +21,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'hub',
     'bootstrap4',
+    'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
