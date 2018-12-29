@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'hub',
+    'channels',
     'fontawesome',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,7 +59,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AutoHub.wsgi.application'
-
+ASGI_APPLICATION = "AutoHub.routing.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
