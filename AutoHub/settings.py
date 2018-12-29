@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'hub',
+    'chat',
     'channels',
     'fontawesome',
     'django.contrib.admin',

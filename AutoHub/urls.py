@@ -23,4 +23,5 @@ urlpatterns = [
     path('user/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='AutoHub/home.html'), name='home'),
     path('', include('hub.urls')),
+    path('chat/', include('chat.urls')),
 ]
