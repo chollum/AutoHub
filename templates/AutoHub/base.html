@@ -11,7 +11,7 @@
     {% endblock %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
     {% block resources %}
     {% endblock %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body style="background-color:#faebd7">
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size:2em;color:white;">
   <a class="navbar-brand" href="/"><i class="fa fa-home fa-2x"> Home </i></a>
@@ -28,7 +28,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" style="text-align:center;">
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fa fa-lock"> Doors </i></a>
       </li>

@@ -3,5 +3,60 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-Test 1
+{% load static %}
+<div class="page-header text-center">
+    <h1>{{ user.username|title }}'s Home Automation Hub.</h1>
+    <p>Click below to begin.</p>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="#">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block" style="position:absolute">
+            <h2>Doors</h2>
+        </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="#">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block">
+            <h2>Lights</h2>
+        </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="#">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block">
+            <h2>Data</h2>
+        </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="{% url 'chatselect' %}">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block">
+            <h2>Chat</h2>
+        </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="#">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block">
+            <h2>New</h2>
+        </div>
+        </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <a href="#">
+        <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
+        <div class="text-block">
+            <h2>User</h2>
+        </div>
+        </a>
+    </div>
+</div>
 {% endblock %}
