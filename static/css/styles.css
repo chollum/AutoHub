@@ -1,10 +1,5 @@
 .main{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 50%;
-    width: 50%;
-    transform: translate(-50%,-50%);    
+    
 }
 
 .text-block{
@@ -15,4 +10,9 @@
     color: white;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.centered{
+    margin: auto;
+    width: 50%;
 }

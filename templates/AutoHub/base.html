@@ -27,22 +27,19 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
     <ul class="navbar-nav" style="text-align:center;">
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-lock"> Doors </i></a>
+        <a class="nav-link" href="{% url 'doors' %}"><i class="fa fa-lock"> Doors </i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-bolt"> Lights </i></a>
+        <a class="nav-link" href="{% url 'lights' %}"><i class="fa fa-bolt"> Lights </i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-thermometer-half"> Data </i></a>
+        <a class="nav-link" href="{% url 'data' %}"><i class="fa fa-thermometer-half"> Data </i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'chatselect' %}"><i class="fa fa-comment"> Chat </i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-plus-square"> New </i></a>
       </li>
       {% if not user.is_authenticated %}
       <li class="nav-item">

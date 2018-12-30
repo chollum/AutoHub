@@ -5,13 +5,18 @@
 {% block content %}
 {% load static %}
 <div class="page-header text-center">
+    {% if user.is_authenticated %}
     <h1>{{ user.username|title }}'s Home Automation Hub.</h1>
-    <p>Click below to begin.</p>
+    <p>Please select a page below to begin.</p>
+    {% else %}
+    <h1>Welcome to the Automation Hub.</h1>
+    <p>Please log in to begin.</p>
+    {% endif %}
 </div>
 
 <div class="row">
     <div class="col-12 col-md-6 col-lg-4">
-        <a href="#">
+        <a href="{% url 'doors' %}">
         <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
         <div class="text-block" style="position:absolute">
             <h2>Doors</h2>
@@ -19,7 +24,7 @@
         </a>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
-        <a href="#">
+        <a href="{% url 'lights' %}">
         <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
         <div class="text-block">
             <h2>Lights</h2>
@@ -27,7 +32,7 @@
         </a>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
-        <a href="#">
+        <a href="{% url 'data' %}">
         <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
         <div class="text-block">
             <h2>Data</h2>
@@ -43,20 +48,21 @@
         </a>
     </div>
     <div class="col-12 col-md-6 col-lg-4">
-        <a href="#">
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">
         <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
         <div class="text-block">
-            <h2>New</h2>
+            <h2>Log Out</h2>
         </div>
         </a>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-        <a href="#">
+        {% else %}
+        <a href="{% url 'login' %}">
         <img src="{% static 'images/nature.jpg' %}" alt="Nature" class="img-responsive img-thumbnail">
         <div class="text-block">
-            <h2>User</h2>
+            <h2>Log In</h2>
         </div>
         </a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
