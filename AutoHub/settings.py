@@ -20,7 +20,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'hub',
-    'chat',
     'channels',
     'fontawesome',
     'django.contrib.admin',
@@ -60,7 +59,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AutoHub.wsgi.application'
-ASGI_APPLICATION = "AutoHub.routing.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -120,3 +118,17 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+
+#Channels Settings
+
+ASGI_APPLICATION = "AutoHub.routing.application"
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

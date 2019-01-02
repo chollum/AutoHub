@@ -1,0 +1,43 @@
+{% extends "AutoHub/base.html" %}
+
+{% block title %}Test Page for web socket{% endblock %}
+
+{% block content %}
+<input id="test-value-input" type="text" size="100"/><br/>
+<input id="test-value-submit" type="button" value="Enter"/>
+{% endblock %}
+
+{% block script %}
+<script>
+    var dataSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/hub/data/');
+
+//    dataSocket.onmessage = function(e) {
+//        var data = JSON.parse(e.data);
+//        var message = data['message'];
+//        document.querySelector('#chat-log').value += (message + '\n');
+//    };
+
+    dataSocket.onclose = function(e) {
+        console.error('Data socket closed unexpectedly');
+    };
+
+    document.querySelector('#test-value-input').focus();
+    document.querySelector('#test-value-input').onkeyup = function(e) {
+        if (e.keyCode === 13) {  // enter, return
+            document.querySelector('#test-value-submit').click();
+        }
+    };
+
+    document.querySelector('#test-value-submit').onclick = function(e) {
+        var messageInputDom = document.querySelector('#test-value-input');
+        var message = messageInputDom.value;
+        dataSocket.send(JSON.stringify({
+            'message': message
+        }));
+        console.debug("WebSocket message sent");
+        messageInputDom.value = '';
+    };
+</script>
+{% endblock %}

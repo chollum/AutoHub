@@ -11,4 +11,7 @@ def lights(request):
     return render(request, 'hub/lights.html')
 
 def data(request):
-    return render(request, 'hub/data.html')
+    return render(request, 'hub/data.html', {})
+
+def test(request):
+    return render(request, 'hub/test.html')

@@ -1,8 +1,10 @@
+from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 import json
 
-class ChatConsumer(WebsocketConsumer):
+class GenericConsumer(WebsocketConsumer):
     def connect(self):
+        
         self.accept()
 
     def disconnect(self, close_code):
