@@ -18,17 +18,17 @@
         'ws://' + window.location.host +
         '/ws/hub/data/');
 
-    dataSocket.onmessage = function(event) {
-        console.debug("WebSocket message received:", event);
-    };
-
-
-//    dataSocket.onmessage = function(e) {
-//        var data = JSON.parse(e.data);
-//        var message = data['message'];
-//        line1.append(new Date().getTime(), message);
-//        smoothie.addTimeSeries(line1);
+//    dataSocket.onmessage = function(event) {
+//        console.debug("WebSocket message received:", event);
 //    };
+
+
+    dataSocket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        line1.append(new Date().getTime(), message);
+        smoothie.addTimeSeries(line1);
+    };
 
     dataSocket.onclose = function(e) {
         console.error('Chat socket closed unexpectedly');
