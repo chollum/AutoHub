@@ -4,9 +4,7 @@ import json
 
 class GenericConsumer(WebsocketConsumer):
     def connect(self):
-        self.room_name = "test"
-        print(self.scope)
-        self.room_group_name = 'data_%s' % self.room_name
+        self.room_group_name = self.scope['path'].strip('/').split('/')[-1]
 
         # Join room group
         async_to_sync(self.channel_layer.group_add)(
@@ -40,7 +38,6 @@ class GenericConsumer(WebsocketConsumer):
     # Receive message from room group
     def new_data(self, event):
         message = event['message']
-
         # Send message to WebSocket
         self.send(text_data=json.dumps({
             'message': message

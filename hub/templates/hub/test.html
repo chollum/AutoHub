@@ -3,6 +3,7 @@
 {% block title %}Test Page for web socket{% endblock %}
 
 {% block content %}
+<h2>Socket sending test page.</h2>
 <input id="test-value-input" type="text" size="100"/><br/>
 <input id="test-value-submit" type="button" value="Enter"/>
 {% endblock %}
@@ -34,7 +35,7 @@
         var messageInputDom = document.querySelector('#test-value-input');
         var message = messageInputDom.value;
         dataSocket.send(JSON.stringify({
-            'message': message
+            'message': message,
         }));
         console.debug("WebSocket message sent");
         messageInputDom.value = '';

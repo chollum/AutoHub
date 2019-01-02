@@ -18,14 +18,11 @@
         'ws://' + window.location.host +
         '/ws/hub/data/');
 
-//    dataSocket.onmessage = function(event) {
-//        console.debug("WebSocket message received:", event);
-//    };
-
-
     dataSocket.onmessage = function(e) {
+        console.debug("Socket message received:", e);
         var data = JSON.parse(e.data);
         var message = data['message'];
+        console.debug(data);
         line1.append(new Date().getTime(), message);
         smoothie.addTimeSeries(line1);
     };

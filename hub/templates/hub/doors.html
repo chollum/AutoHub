@@ -7,5 +7,21 @@
 {% endblock %}
 
 {% block script %}
+<script>
+    
+    var dataSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/hub/doors/');
 
+    dataSocket.onmessage = function(e) {
+        console.debug("Socket message received:", event);
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        
+    };
+
+    dataSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+</script>
 {% endblock %}
