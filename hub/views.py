@@ -15,3 +15,6 @@ def data(request):
 
 def test(request):
     return render(request, 'hub/test.html')
+
+def chat(request):
+    return render(request, 'hub/chat.html')

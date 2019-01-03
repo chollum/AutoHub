@@ -14,12 +14,6 @@
         'ws://' + window.location.host +
         '/ws/hub/data/');
 
-//    dataSocket.onmessage = function(e) {
-//        var data = JSON.parse(e.data);
-//        var message = data['message'];
-//        document.querySelector('#chat-log').value += (message + '\n');
-//    };
-
     dataSocket.onclose = function(e) {
         console.error('Data socket closed unexpectedly');
     };
@@ -36,6 +30,8 @@
         var message = messageInputDom.value;
         dataSocket.send(JSON.stringify({
             'message': message,
+            'name': "front_door",
+            'parameter': "temperature",
         }));
         console.debug("WebSocket message sent");
         messageInputDom.value = '';

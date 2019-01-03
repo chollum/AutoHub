@@ -1,9 +1,23 @@
 {% extends "AutoHub/home.html" %}
 
 {% block title %} Doors {% endblock %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/toggle_switch.css'%}">
+{% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+<h2>Door Control</h2>
+<hr>
+<h5>Front Door</h5>
+<label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+{% else %}
+<p>You must be signed in to view this page. Please click <a href="{% url 'login' %}">here</a> to sign in.</p>
+{% endif %}
 {% endblock %}
 
 {% block script %}

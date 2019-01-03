@@ -3,28 +3,47 @@
 {% block title %} View Data {% endblock %}
 {% load static %}
 {% block content %}
-<canvas id="data" width="800" height="300"></canvas>
+{% if user.is_authenticated %}
+<h2>Home Data</h2>
+<hr>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h5>Humidity</h5>
+        <table id="humidity">
+            <tr><th>Room</th><th>Value</th><tr>
+        </table>
+        <h5>Temperature</h5>
+        <table id="temperature">
+            <tr><th>Room</th><th>Value</th><tr>
+        </table>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% else %}
+<p>You must be signed in to view this page. Please click <a href="{% url 'login' %}">here</a> to sign in.</p>
+{% endif %}
 {% endblock %}
 
 {% block script %}
 <script type="text/javascript" src="{% static 'js/smoothie.js' %}"></script>
 <script>
-    var smoothie = new SmoothieChart();
-    smoothie.streamTo(document.getElementById("data"));
-    
-    var line1 = new TimeSeries();
-
     var dataSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/hub/data/');
 
     dataSocket.onmessage = function(e) {
-        console.debug("Socket message received:", e);
         var data = JSON.parse(e.data);
+        console.log(data);
         var message = data['message'];
-        console.debug(data);
-        line1.append(new Date().getTime(), message);
-        smoothie.addTimeSeries(line1);
+        var parameter = data['parameter'];
+        var name = data['name'];
+        var table = document.getElementById(parameter);
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = name;
+        cell2.innerHTML = message;
     };
 
     dataSocket.onclose = function(e) {

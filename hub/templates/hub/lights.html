@@ -3,7 +3,11 @@
 {% block title %} Lights {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
 
+{% else %}
+<p>You must be signed in to view this page. Please click <a href="{% url 'login' %}">here</a> to sign in.</p>
+{% endif %}
 {% endblock %}
 
 {% block script %}

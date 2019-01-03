@@ -7,13 +7,12 @@
     {% load static %}
     {% load fontawesome %}
     {% fontawesome_stylesheet %}
-    {% block head-css %}
+    {% block css %}
     {% endblock %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
-    {% block resources %}
-    {% endblock %}
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
