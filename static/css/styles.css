@@ -18,5 +18,9 @@
 }
 
 textarea[disabled] {
-   color: black;
+    color: black;
+}
+
+table{
+    background-color:white;
 }
