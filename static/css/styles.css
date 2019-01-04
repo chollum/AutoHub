@@ -1,5 +1,6 @@
 .main{
-    
+    margin: auto;
+    max-width: 960px;    
 }
 
 .text-block{
@@ -23,4 +24,15 @@ textarea[disabled] {
 
 table{
     background-color:white;
+}
+
+.bordered{
+    background-color:#343a40;
+    border-style:solid;
+    padding:15px;
+}
+
+.accent{
+    border-color:#999c9f;
+    color:#999c9f;
 }
