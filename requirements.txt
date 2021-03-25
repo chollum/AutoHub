@@ -6,7 +6,7 @@ django-fontawesome==1.0
 idna==2.8
 oauthlib==2.1.0
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 requests==2.21.0
 requests-oauthlib==1.0.0
 six==1.12.0
